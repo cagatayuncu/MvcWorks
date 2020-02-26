@@ -1,0 +1,33 @@
+﻿@using NorthWindDeneme.Models.EntityFramework;
+@model IEnumerable<NorthWindDeneme.Models.EntityFramework.Products>
+
+<h1>Ürünleri Listele</h1>
+<table class="table table-bordered" id="tblSuppliers">
+    <thead>
+        <tr>
+            <th> Name</th>
+            <th>price</th>
+            <th>stock</th>
+            <th>order</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductName</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.UnitsInStock</td>
+                <td>@product.UnitsOnOrder</td>
+                <td><a class="btn btn-primary" href="/Products/Edit/@product.ProductID">Güncelle</a></td>
+                <td><a class="btn btn-warning" href="/Products/Delete/@product.ProductID">Sil</a> </td>
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+

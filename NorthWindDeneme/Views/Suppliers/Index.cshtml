@@ -1,0 +1,63 @@
+﻿@using NorthWindDeneme.Models.EntityFramework;
+@model List<NorthWindDeneme.Models.EntityFramework.Suppliers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Suppliers List</h2>
+<table class="table table-bordered" id="tblSuppliers">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Contact Name</th>
+            <th>Address</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var suppliers in Model)
+        {
+        <tr>
+            <td>@suppliers.CompanyName</td>
+            <td>@suppliers.ContactName</td>
+            <td>@suppliers.Address</td>
+            <td>@suppliers.Country</td>
+            <td>@suppliers.City</td>
+            <td>@suppliers.Phone</td>
+            <td><a class="btn btn-primary" href="/Suppliers/Guncelle/@suppliers.SupplierID">Güncelle</a></td>
+            <td><a class="btn btn-warning" href="/Suppliers/Sil/@suppliers.SupplierID">Sil</a></td>
+        </tr>
+        }
+
+        @*<tr>
+         
+            @using (Html.BeginForm("Ara", "Suppliers", FormMethod.Post))
+            {
+
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" name="ara" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+
+                // <div class="input-group custom-search-form">
+                //   <input type="text" class="form-control" name="ara" placeholder="Search...">
+                // <button type="submit" class="btn btn-success">Ara</button>
+                //</div>
+
+
+
+            }
+        </tr>*@
+    </tbody>
+</table>
+

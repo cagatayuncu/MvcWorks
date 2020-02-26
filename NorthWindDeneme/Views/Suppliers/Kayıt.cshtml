@@ -1,0 +1,59 @@
+﻿
+@model NorthWindDeneme.Models.EntityFramework.Suppliers
+@{
+    /**/
+
+    ViewBag.Title = "Kayıt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<form method="post">
+
+        <div class="form-group row">
+            <div class="col-xs-4">
+                <label for="ex1">Category Name</label>
+                <input type="text" name="CategoryName" class="form-control" />
+            </div>
+
+            <div class="col-xs-8">
+                <label>Description</label>
+                <input type="text" name="Description" class="form-control" />
+             </div>
+            </div>
+
+       <button type="submit"class="btn btn-success" >Ekle</button>
+    </form>*@
+
+@using (Html.BeginForm("Kayıt", "Suppliers", FormMethod.Post))
+{
+    <div class="form-group row">
+        <div class="col-xs-4">
+            @Html.LabelFor(m => m.Address)
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        </div>
+        <div class="col-xs-4">
+            @Html.LabelFor(m => m.City)
+            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        </div>
+        <div class="col-xs-4">
+            @Html.LabelFor(m => m.CompanyName)
+            @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+        </div>
+        <div class="col-xs-4">
+            @Html.LabelFor(m => m.ContactName)
+            @Html.TextBoxFor(m => m.ContactName, new { @class = "form-control" })
+        </div>
+        <div class="col-xs-4">
+            @Html.LabelFor(m => m.Country)
+            @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+        </div>
+        <div class="col-xs-4">
+            @Html.LabelFor(m => m.Phone)
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        </div>
+
+    </div>
+    @Html.HiddenFor(m => m.SupplierID)
+    <button type="submit" class="btn btn-success">Kayıt</button>
+}
+

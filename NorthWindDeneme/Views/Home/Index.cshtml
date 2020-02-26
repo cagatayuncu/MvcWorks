@@ -1,0 +1,36 @@
+﻿@using NorthWindDeneme.Models.EntityFramework;
+    @model List<Categories>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Category List</h2>
+<table class="table table-bordered" id="tblCategory">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+            <th>Products</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Categories in Model)
+        {
+            <tr>
+                <td>@Categories.CategoryID</td>
+                <td>@Categories.CategoryName</td>
+                <td>@Categories.Description</td>
+                <td><a class="btn btn-primary" href="/Home/Guncelle/@Categories.CategoryID">Güncelle</a></td>
+                <td><a class="btn btn-warning btnCategorySil"data-id="@Categories.CategoryID" >Sil</a></td>
+                <td>@Ajax.ActionLink("Ürünleri Göster","Listele","Products",new
+               {id=Categories.CategoryID },new AjaxOptions {HttpMethod="GET",UpdateTargetId="Liste" },new {@class="btn btn-primary" }) </td>
+            </tr>
+        }
+
+
+      
+</table>
+<div id="Liste"></div>
